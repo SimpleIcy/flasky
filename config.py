@@ -3,6 +3,7 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config:
     SECRET_KEY = '8cOgMVUSY3wPWCLkzwSlEKEU1a'
     MAIL_SERVER = 'smtp.qq.com'
@@ -14,7 +15,6 @@ class Config:
     FLASKY_MAIL_SENDER = '360478265@qq.com'
     FLASKY_ADMIN = 'deng.changchao@yanwei365.com'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
 
     @staticmethod
     def init_app(app):
