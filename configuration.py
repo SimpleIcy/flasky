@@ -20,6 +20,7 @@ class Config:
     def init_app(app):
         pass
 
+
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
