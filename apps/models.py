@@ -15,7 +15,28 @@ class Role(db.Model):
     __tablename__ = 'roles'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
+    default = db.Column(db.Boolean, default=False, index=True)
+    permissions = db.Column(db.Integer)
     users = db.relationship('User', backref='role', lazy='dynamic')
+
+    def __init__(self, **kwargs):
+        super(Role, self).__init__(**kwargs)
+        if self.permissions is None:
+            self.permissions = 0
+
+    def add_permissions(self, perm):
+        if not self.has_permissions(perm):
+            self.permissions += perm
+
+    def remove_permissions(self, perm):
+        if not self.has_permissions(perm):
+            self.permissions -= perm
+
+    def reset_permissions(self):
+        self.permissions = 0
+
+    def has_permissions(self, perm):
+        return self.permissions & perm == perm
 
     def __repr__(self):
         return '<Role %r>' % self.name
@@ -60,3 +81,12 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+class Permission:
+    FOLLOW = 1
+    COMMENT = 2
+    WRITE = 4
+    MODERATE = 8
+    ADMIN = 16
+

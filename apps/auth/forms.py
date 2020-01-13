@@ -24,12 +24,12 @@ class RegistrationForm(FlaskForm):
     summit = SubmitField('Register')
 
     @staticmethod
-    def validate_email(field):
+    def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError('Email address already registered.')
 
     @staticmethod
-    def validate_username(field):
+    def validate_username(self, field):
         if User.query.filter_by(username=field.data).first():
             raise ValidationError('Username already in use.')
 

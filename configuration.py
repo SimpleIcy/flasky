@@ -9,8 +9,8 @@ class Config:
     MAIL_SERVER = 'smtp.qq.com'
     MAIL_PORT = 465
     MAIL_USE_SSL = True
-    MAIL_USERNAME = 'my@qq.com'
-    MAIL_PASSWORD = 'yourpassword'
+    MAIL_USERNAME = '360478265@qq.com'
+    MAIL_PASSWORD = 'wecjhilzdrdabghj'
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
     FLASKY_MAIL_SENDER = '360478265@qq.com'
     FLASKY_ADMIN = 'deng.changchao@yanwei365.com'

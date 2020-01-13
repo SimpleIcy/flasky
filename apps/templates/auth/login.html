@@ -9,11 +9,6 @@
 </div>
 <div class="col-md-4">
     {{ wft.quick_form(form) }}
+    <p>New User?<a href="{{ url_for('auth.register') }}">Click here to register new user</a></p>
 </div>
-    <p>
-        New User?
-        <a hre="{{ url_for('auth.register') }}">
-            Click here to register new user
-        </a>
-    </p>
 {% endblock %}
