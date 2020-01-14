@@ -4,6 +4,7 @@ from flask import current_app
 from apps import create_app, db
 from apps.models import User
 
+
 class BasicsTestCase(unittest.TestCase):
     def setUp(self):
         self.app = create_app('testing')
@@ -34,11 +35,11 @@ class UserModelTestCase(unittest.TestCase):
             u.password
 
     def test_password_verification(self):
-        u = User(password = 'cat')
+        u = User(password='cat')
         self.assertTrue(u.verify_password('cat'))
         self.assertFalse(u.verify_password('1cat'))
 
     def test_password_salts_random(self):
-        u = User(password = 'cat')
-        u1 = User(password = 'cat')
+        u = User(password='cat')
+        u1 = User(password='cat')
         self.assertTrue(u.password_hash != u1.password_hash)
